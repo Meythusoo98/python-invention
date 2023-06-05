@@ -1,0 +1,51 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+        crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <title>Compatability Check</title>
+      </head>
+<body class="bg-word">
+  <h1 class="text-light display-3 tag-2">Welcome to the check board. You may proceed with the check.</h1><br>
+  <ul>
+    <li>You are allowed to quit the game.</li>
+    <li>Once you click start no going back.</li>
+    <li>After submitting you press next to proceed.</li>
+    <li>Below the check you always get results.</li>
+</ul>
+    <div class="container mt-250">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-body">
+                <h2>Speed</h2>
+                <p align="center"><a href=/speed ><button class=grey style="height:75px;width:150px">Start</button></a></p>              </div>
+            </div>
+          </div>  
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-body">
+                <h2>Attitude</h2>
+                <p align="center"><a href="/attitude" ><button class=grey style="height:75px;width:150px">Start</button></a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-body">
+                <h2>101-Soft Skills</h2>
+                <p align="center"><a href=/softSkill ><button class=grey style="height:75px;width:150px">Start</button></a></p>              </div>
+            </div>
+          </div>
+          </div>
+        </div>    
+    </div>      
+        
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

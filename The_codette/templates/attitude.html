@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Internal Screening</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-word">
+<div id="wrapper">
+  <h1>How satisfied are you?</h1>
+  <p>Take this screening test to find out!</p>
+ 
+  <form id="quiz">
+    <!-- Question 1 -->
+
+    <h2>How does your current work experience make you feel?</h2>
+    <!-- Here are the choices for the first question. Each input tag must have the same name. For this question, the name is q1. -->
+    <!-- The value is which answer the choice corresponds to. -->
+    <label><input type="radio" name="q1" value="c1">
+      Is great, I am loving it.
+    </label><br />
+    <label><input type="radio" name="q1" value="c2">
+      Is ok I am trying to adapt
+    </label><br />
+    <label><input type="radio" name="q1" value="c3">
+      Just average
+    </label><br />
+    <label><input type="radio" name="q1" value="c4">
+      Is horrible, I do not like it here
+    </label><br />
+
+    <!-- Question 2 -->
+    <h2>Is this your ideal work environment?</h2>
+    <!-- Here are the choices for the second question. Notice how each input tag has the same name (q2), but a different name than the previous question. -->
+    <label><input type="radio" name="q2" value="c1">
+      Absolutely I love it here
+    </label><br />
+    <label><input type="radio" name="q2" value="c2">
+      I like it hoping to love it
+    </label><br />
+    <label><input type="radio" name="q2" value="c3">
+      I am trying but I cannot adapt
+    </label><br />
+    <label><input type="radio" name="q2" value="c4">
+      Not at all
+    </label><br />
+   
+    <!-- Question 3 -->
+    <h2>How is your relationship with your collegues?</h2>
+    <!-- Choices for the third question -->
+    <label><input type="radio" name="q3" value="c1">
+      We have a teamwork energy
+    </label><br />
+    <label><input type="radio" name="q3" value="c2">
+      We try and put our differences aside
+    </label><br />
+    <label><input type="radio" name="q3" value="c3">
+      I do not really understand them
+    </label><br />
+    <label><input type="radio" name="q3" value="c4">
+      We do not get along at all
+    </label><br />
+   
+    <!-- Question 4 -->
+    <h2>Have you encountered a difficult problem?</h2>
+    <!-- Choices for the fourth question -->
+    <label><input type="radio" name="q4" value="c1">
+      Yes and I find the solution yourself (online, in a book, etc.)
+    </label><br />
+    <label><input type="radio" name="q4" value="c2">
+      I ask collegues for help
+    </label><br />
+    <label><input type="radio" name="q4" value="c3">
+      I try and if I fail I sleep
+    </label><br />
+    <label><input type="radio" name="q4" value="c4">
+      I give up easily
+    </label><br />
+   
+    <button type="submit" id="submit" onclick="tabulateAnswers()">Submit Your Answers</button>
+    <button type="reset" id="reset" onclick="location.href ='/softSkill'">Next</button>
+    <br>
+    <button type="submit" id="submit" onclick="location.href ='/boards'">Abort</button>
+  </form>
+ 
+ 
+  <div id="answer">Your result will show up here!</div>
+</div>
+
+<script type="text/javascript">
+document.getElementById('submit').onclick=function tabulateAnswers(event) {
+  event.preventDefault()
+  // initialize variables for each choice's score
+  // If you add more choices and outcomes, you must add another variable here.
+  var c1score = 0;
+  var c2score = 0;
+  var c3score = 0;
+  var c4score = 0;
+ 
+  // get a list of the radio inputs on the page
+  var choices = document.getElementsByTagName('input');
+  // loop through all the radio inputs
+  for (i=0; i<choices.length; i++) {
+    // if the radio is checked..
+    if (choices[i].checked) {
+      // add 1 to that choice's score
+      if (choices[i].value == 'c1') {
+        c1score = c1score + 1;
+      }
+      if (choices[i].value == 'c2') {
+        c2score = c2score + 1;
+      }
+      if (choices[i].value == 'c3') {
+        c3score = c3score + 1;
+      }
+      if (choices[i].value == 'c4') {
+        c4score = c4score + 1;
+      }
+      // If you add more choices and outcomes, you must add another if statement below.
+    }
+  }
+ 
+  // Find out which choice got the highest score.
+  // If you add more choices and outcomes, you must add the variable here.
+  var maxscore = Math.max(c1score,c2score,c3score,c4score);
+ 
+  // Display answer corresponding to that choice
+  var answerbox = document.getElementById('answer');
+  if (c1score == maxscore) { // If user chooses the first choice the most, this outcome will be displayed.
+    answerbox.innerHTML = "You are happy here with us. And we love that. ";
+  }
+  if (c2score == maxscore) { // If user chooses the second choice the most, this outcome will be displayed.
+    answerbox.innerHTML = "You are still adapting to the environment we hope you will love it here. ";
+  }
+  if (c3score == maxscore) { // If user chooses the third choice the most, this outcome will be displayed.
+    answerbox.innerHTML = "You are far from being happy in our workplace please report to the administrator. ";
+  }
+  if (c4score == maxscore) { // If user chooses the fourth choice the most, this outcome will be displayed.
+    answerbox.innerHTML = "You are not enjoying here we have to set a meeting for you and the supervisor.";
+  }
+  // If you add more choices, you must add another response below.
+}
+
+// program the reset button
+function resetAnswer() {
+  var answerbox = document.getElementById('answer');
+  answerbox.innerHTML = "Your result will show up here!";
+}
+
+</script>
+
+</body>
+</html>

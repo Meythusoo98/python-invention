@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Softskill</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-word">
+    <div id="wrapper">
+    <h2>Suppose you are on a team and one member of the team is not contributing equality. How would you address this?</h2>
+    <br />
+    <label><input type="radio" id="r1" name="fav_language" value="1">Report them to the manager.</label>
+    <br />
+    <label><input type="radio" id="r2" name="fav_language" value="2">Talk to them on the side to try and understand why.</label>
+    <br/>
+    <label><input type="radio" id="r3" name="fav_language" value="3.">Tell everyone in the office about it.</label>
+    <br />
+    <label><input type="radio" id="r4" name="fav_language" value="4">Ask your team members why</label>
+    <br />
+    <br />
+    <button type="submit" id="submit" onclick="tabulateAnswers()">Submit Your Answers</button>
+    <button type="reset" id="reset" onclick="location.href ='/'">Next</button>
+    <br>
+    <button type="submit" id="submit" onclick="location.href ='/boards'">Abort</button>
+
+</div>
+<script>function showAlert(myAlert){
+var myAlert="Thank you";
+alert(myAlert);}</script>
+
+
+</body>
+</html>
